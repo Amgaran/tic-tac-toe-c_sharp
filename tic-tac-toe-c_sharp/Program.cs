@@ -13,6 +13,15 @@ namespace TicTacToe {
             bool botFlag;
             while (!bool.TryParse(Console.ReadLine(), out botFlag)) { Console.WriteLine("Wrong input! Enter \"true\" or \"false\"!"); }
 
+            if (botFlag) {
+                Console.WriteLine("Тип бота:");
+                Console.WriteLine("1) Random bot");
+                Console.WriteLine("2) OneStep bot");
+                int type_bot;
+                while (!int.TryParse(Console.ReadLine(), out type_bot) && !(type_bot == 0 || type_bot == 1)) { Console.WriteLine("Wrong input! Enter натуральное число!"); }
+
+            }
+            
             Console.WriteLine("\nNew game!");
             int x;
             int y;
@@ -47,7 +56,7 @@ namespace TicTacToe {
 
                 field.SetSymbol(x - 1, y - 1, symbol);
                 numStep++;
-            } while (!field.checkWin());
+            } while (!field.checkWin() && numStep < horizontalSize * verticalSize);
             
             Console.WriteLine($"{symbol} побеждает!");
         }

@@ -23,6 +23,11 @@ namespace TicTacToe {
             printField();
         }
 
+        public Field Copy() {
+            var other = (Field) this.MemberwiseClone();
+            return other;
+        }
+
         public bool CheckSymbol(int x, int y) {
             if (x < 0 || x > _horizontalSize-1 || y < 0 || y > _verticalSize-1) {
                 Console.WriteLine("Такой точки нет на поле. Введите другие координаты.");
