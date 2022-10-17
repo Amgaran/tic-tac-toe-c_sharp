@@ -39,7 +39,7 @@ namespace TicTacToe {
                 numStep++;
             } while (!field.checkWin() && numStep < _horizontalSize * _verticalSize);
             
-            Console.WriteLine($"{symbol} побеждает!");
+            Console.WriteLine(string.Format("{0} побеждает!", symbol));
         }
     }
 }

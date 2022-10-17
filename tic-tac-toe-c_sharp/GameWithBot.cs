@@ -39,8 +39,6 @@ namespace TicTacToe {
                     bot.make_move(numStep, field);
                     x = bot.Cell[0] + 1;
                     y = bot.Cell[1] + 1;
-                    Console.WriteLine("Я застрял!!!");
-                    
                 } else {
                     do {
                         Console.WriteLine("Введите координату Х ");
@@ -55,7 +53,7 @@ namespace TicTacToe {
                 numStep++;
             } while (!field.checkWin() && numStep < _horizontalSize * _verticalSize);
             
-            Console.WriteLine($"{symbol} побеждает!");
+            Console.WriteLine(string.Format("{0} побеждает!", symbol));
         }
     }
 }
