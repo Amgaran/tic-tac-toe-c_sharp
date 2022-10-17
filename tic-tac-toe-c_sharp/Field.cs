@@ -15,26 +15,31 @@ namespace TicTacToe {
                     _cells[i, j] = ' ';
                 }
             }
-            printField();
+            // printField();
         }
 
         public void SetSymbol(int x, int y, char symbol) {
             _cells[x, y] = symbol;
-            printField();
         }
 
         public Field Copy() {
-            var other = (Field) this.MemberwiseClone();
+            var other = new Field(_horizontalSize, _verticalSize);
+            for (var j = 0; j < _verticalSize; j++) {
+                for (var i = 0; i < _horizontalSize; i++) {
+                    other._cells[i, j] = _cells[i, j];
+                }
+            }
+
             return other;
         }
 
-        public bool CheckSymbol(int x, int y) {
+        public bool CheckSymbol(int x, int y, bool playerMove) {
             if (x < 0 || x > _horizontalSize-1 || y < 0 || y > _verticalSize-1) {
                 Console.WriteLine("Такой точки нет на поле. Введите другие координаты.");
                 return true;
             } 
             var flag = _cells[x, y] != ' ';
-            if (flag) {
+            if (flag && playerMove) {
                 Console.WriteLine("В данной клетке уже стоит другой символ. Введите другие координаты.");
             }
             return flag;
@@ -115,7 +120,7 @@ namespace TicTacToe {
             return flag;
         }
 
-        private void printField() {
+        public void printField() {
             for (var j = 0; j < _verticalSize; j++) {
                 for (var i = 0; i < _horizontalSize; i++) {
                     Console.Write(_cells[i, j]);

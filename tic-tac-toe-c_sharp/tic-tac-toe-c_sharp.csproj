@@ -39,7 +39,10 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Bot.cs" />
         <Compile Include="Field.cs" />
+        <Compile Include="GameWithBot.cs" />
+        <Compile Include="GameWithPlayer.cs" />
         <Compile Include="OneStepBot.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
