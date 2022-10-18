@@ -25,8 +25,8 @@ namespace TicTacToe {
 
                 newField.SetSymbol(i, j, symbol);
                 if (newField.checkWin()) {
-                    Cell[0] = i;
-                    Cell[1] = j;
+                    Cell[0] = i+1;
+                    Cell[1] = j+1;
                     return;
                 }
             }

@@ -35,16 +35,17 @@ namespace TicTacToe {
                 }
 
                 if (numStep % 2 != 0) {
-                    
-                    bot.make_move(numStep, field);
-                    x = bot.Cell[0] + 1;
-                    y = bot.Cell[1] + 1;
+                    do {
+                        bot.make_move(numStep, field);
+                        x = bot.Cell[0];
+                        y = bot.Cell[1];
+                    } while (field.CheckSymbol(x - 1, y - 1, false));
                 } else {
                     do {
                         Console.WriteLine("Введите координату Х ");
-                        x = int.Parse(Console.ReadLine());
+                        while (!int.TryParse(Console.ReadLine(), out x)) { Console.WriteLine("Wrong input! Enter натуральное число!"); }
                         Console.WriteLine("Введите координату Y ");
-                        y = int.Parse(Console.ReadLine());
+                        while (!int.TryParse(Console.ReadLine(), out y)) { Console.WriteLine("Wrong input! Enter натуральное число!"); }
                     } while (field.CheckSymbol(x - 1, y - 1, true));
                 }
 
