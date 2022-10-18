@@ -17,6 +17,8 @@ namespace TicTacToe {
             Bot bot = new RandomBot(_horizontalSize, _verticalSize);
             if (_botType == 2) {
                 bot = new OneStepBot(_horizontalSize, _verticalSize);
+            } else if (_botType == 3) {
+                bot = new TwoStepBot(_horizontalSize, _verticalSize);
             }
 
             var field = new Field(_horizontalSize, _verticalSize);
@@ -53,8 +55,12 @@ namespace TicTacToe {
                 field.printField();
                 numStep++;
             } while (!field.checkWin() && numStep < _horizontalSize * _verticalSize);
-            
-            Console.WriteLine(string.Format("{0} побеждает!", symbol));
+
+            if (field.checkWin()) {
+                Console.WriteLine(string.Format("{0} побеждает!", symbol));
+            } else {
+                Console.WriteLine("Ничья!");
+            }
         }
     }
 }
