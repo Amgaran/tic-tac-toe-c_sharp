@@ -14,11 +14,10 @@ namespace TicTacToe {
     }
 
     public override void make_move(int numStep, Field field) {
-        var newField = field.Copy();
         var symbol = numStep % 2 == 0 ? 'X' : 'O';
         for (var i = 0; i < _horizontalSize; i++) {
             for (var j = 0; j < _verticalSize; j++) {
-                newField = field.Copy();
+                var newField = field.Copy();
                 if (newField.CheckSymbol(i, j, false)) {
                     continue;
                 }

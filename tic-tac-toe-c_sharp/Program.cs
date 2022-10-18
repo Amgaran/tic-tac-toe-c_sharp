@@ -16,10 +16,10 @@ namespace TicTacToe {
                 Console.WriteLine("Тип бота:");
                 Console.WriteLine("1) Random bot");
                 Console.WriteLine("2) OneStep bot");
-                int type_bot;
-                while (!int.TryParse(Console.ReadLine(), out type_bot) && !(type_bot == 1 || type_bot == 2)) { Console.WriteLine("Wrong input! Enter 1 or 2!"); }
+                int typeBot;
+                while (!int.TryParse(Console.ReadLine(), out typeBot) && !(typeBot == 1 || typeBot == 2)) { Console.WriteLine("Wrong input! Enter 1 or 2!"); }
 
-                var game = new GameWithBot(horizontalSize, verticalSize, type_bot);
+                var game = new GameWithBot(horizontalSize, verticalSize, typeBot);
                 game.Game();
             } else {
                 var game = new GameWithPlayer(horizontalSize, verticalSize);
